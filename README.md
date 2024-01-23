@@ -1,0 +1,1 @@
+# String-Type-And-Whitespace-Remover
