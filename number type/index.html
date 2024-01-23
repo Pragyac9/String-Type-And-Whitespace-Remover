@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Float or Integer</title>
+    <style>
+        body {
+            background: url(https://th.bing.com/th/id/OIP.BANoG2rzVQCV1BQqcXQ4zwHaEo?rs=1&pid=ImgDetMain);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .main {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            backdrop-filter: blur(80px);
+            height: 30%;
+            width: 30%;
+
+        }
+
+        button {
+            color: white;
+            text-decoration: none;
+            font-size: 25px;
+            border: none;
+            background: none;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        button::before {
+            margin-left: auto;
+        }
+
+        button::after,
+        button::before {
+            content: '';
+            width: 0%;
+            height: 2px;
+            background: #f44336;
+            display: block;
+            transition: 0.5s;
+        }
+
+        button:hover::after,
+        button:hover::before {
+            width: 100%;
+        }
+
+
+
+        input {
+            outline: none;
+            font-size: large;
+            background-color: aqua;
+            border: 3px solid black;
+        }
+
+        label {
+            font-size: large;
+        }
+
+        #result {
+            font-size: x-large;
+            font-style: italic;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <h2>Check if a Number is Float or Integer</h2>
+
+        <label for="numberInput">Enter a Number:</label>
+        <input type="text" id="numberInput"><br><br>
+        <button onclick="checkNumberType()">Check Type</button>
+
+        <p id="result"></p>
+    </div>
+
+
+    <script>
+        function checkNumberType() {
+            const number = parseFloat(document.getElementById('numberInput').value);
+
+            if (isNaN(number)) {
+                document.getElementById('result').innerHTML = "please enter a valid number !";
+            } else if (number === parseInt(number)) {
+                document.getElementById('result').innerHTML = "The " + number + " is  Integer";
+            } else {
+                document.getElementById('result').innerHTML = "The " + number + " is  float";
+
+            }
+
+            // if (Number.isInteger(number)) {
+            //     document.getElementById('result').innerText = `The number ${number} is an integer.`;
+            // } else {
+            //     document.getElementById('result').innerText = `The number ${number} is a float.`;
+            // }
+        }
+    </script>
+</body>
+
+</html>
